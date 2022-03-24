@@ -5,6 +5,8 @@ btnCadastrar.addEventListener("click", cadastrar)
 function cadastrar(){
     if(getDespesa().valuesIsNotEmpty()){
         storage.salvarDespesa(getDespesa())
+    }else{
+        window.alert("valores inválidos")
     }
 }
 
