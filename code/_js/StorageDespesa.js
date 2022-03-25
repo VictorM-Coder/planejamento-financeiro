@@ -12,15 +12,15 @@ class StorageDespesa{
         localStorage.setItem("id", id)
     }
 
-    getDespesas(){
-        let despesas = []
-
-        for (let index in localStorage) {
-            if(typeof localStorage.getItem(index) === "string" && index !== "id"){
-                despesas.push(JSON.parse(localStorage.getItem(index)))
+    /**
+     * 
+     * @param {*} func função que será executada para cada valor de key númeral presente no localstorage passando a key como parâmetro
+     */
+    forInLocalStorage(func){
+        for (let key in localStorage) {
+            if(typeof localStorage.getItem(key) === "string" && key !== "id"){
+                func(key)
             }
         }
-
-        return despesas
     }
 }

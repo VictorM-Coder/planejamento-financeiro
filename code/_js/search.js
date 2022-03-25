@@ -1,14 +1,14 @@
 let tableBody = document.getElementById("table-body")
 
 let storageDespesa = new StorageDespesa()
-let despesas = storageDespesa.getDespesas()
-setRows(despesas)
+setRows()
 
-function setRows(despesas){
+function setRows(){
+    storageDespesa.forInLocalStorage(createTableFromLocalStorage)
+}
 
-    for (let index in localStorage) {
-        if(typeof localStorage.getItem(index) === "string" && index !== "id"){
-            let despesa =  JSON.parse(localStorage.getItem(index))
+function createTableFromLocalStorage(key){
+    let despesa =  JSON.parse(localStorage.getItem(key))
 
             let tr = document.createElement("tr")
 
@@ -24,7 +24,7 @@ function setRows(despesas){
             tdValor.innerText = despesa.valor
             tdDescricao.innerText = despesa.descricao
 
-            let btn = new RemoveButton(localStorage, index)
+            let btn = new RemoveButton(localStorage, key)
             tdRemoveButton.appendChild(btn.getRemoveButton())
             
             tr.appendChild(tdDate)
@@ -33,6 +33,4 @@ function setRows(despesas){
             tr.appendChild(tdDescricao)
             tr.appendChild(tdRemoveButton)
             tableBody.appendChild(tr)
-        }
-    }
 }
