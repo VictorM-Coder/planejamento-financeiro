@@ -8,6 +8,7 @@ class RemoveButton{
 
         this.removeButton.addEventListener('click', function(){
             localStorage.removeItem(index)
+            window.location.reload()
         })
     }
 
