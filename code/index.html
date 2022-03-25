@@ -52,11 +52,49 @@
                     <input id="input-value" class="form-control" type="number" placeholder="Valor">
                 </div>
                 <div class="col-12 d-flex justify-content-right">
-                    <input type="button" class="btn btn-primary" id="btn-cadastrar" value="Cadastrar"></input>
+                    <input type="button" class="btn btn-primary" id="btn-cadastrar" value="Cadastrar" data-toggle="modal" data-target="#example-modal"></input>
                 </div>
             </form>
         </section>
     </main>
+
+    <div id="success-modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-success">Cadastro realizado com sucesso</h5>
+                    <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Sua despesa foi cadastrada com exito</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" aria-label="Close">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fail-modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-danger">Valor inválido</h5>
+                    <button type="button" class="close btn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Um dos campos possui um valor inválido! Tente novamente.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--JS IMPORTS MYCODES-->
     <script src="_js/Despesa.js"></script>
