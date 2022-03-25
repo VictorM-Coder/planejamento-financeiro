@@ -14,8 +14,11 @@ class StorageDespesa{
 
     getDespesas(){
         let despesas = []
-        for(let cont = 1; cont < localStorage.length; cont++){
-            despesas.push(JSON.parse(localStorage.getItem(cont)))
+
+        for (let index in localStorage) {
+            if(typeof localStorage.getItem(index) === "string" && index !== "id"){
+                despesas.push(JSON.parse(localStorage.getItem(index)))
+            }
         }
 
         return despesas
